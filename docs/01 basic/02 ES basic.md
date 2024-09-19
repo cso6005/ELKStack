@@ -18,7 +18,7 @@ curl -H "Content-Type: application/json" <URL> -d '<BODY>'
 - "Content-Type: application/json"
   - 헤더를 보면, ES는 언제나 본문 body JSON 형태임을 알 수 있다.
 
-![alt text](image/1.png)
+![alt text](../image/1.png)
 
 ## 3. Elasticsearch 기본: 논리 개념
 ### 1. Documents
@@ -67,7 +67,7 @@ DB로 비유하자면, 클러스터가 데이터베이스과 같은 개념이고
 
 즉, 역색인은 '해당 검색어가 포함된' 문서에서 특정 키워드 검색어를 매핑하는 것이다.
 
-![alt text](image/2.png)
+![alt text](../image/2.png)
 
 따라서 elasticseacrch는 문서를 색인화할 때 역색인이 생성되어, 문서를 검색어 별로 분할하여 저장한다.
 
@@ -157,7 +157,7 @@ es 가 다 스스로 해준다.
 
 Lucence 외에도 elastic search 의 장점은 이러한 예이비자원을 스스로 관리한다는 점이다.
 
-![alt text](image/4.png)
+![alt text](../image/4.png)
 
 만약 두 개의 프라이머리와 두 개의 레플리카를 가진 색인을 원하고 세 개의 노드를 부여하면 이와 그림과 같이 설정 된다.
 
@@ -218,7 +218,7 @@ es 를 사용하는 많은 애플리케이션은 새로운 문서에 대한 색�
 
 PUT 요청으로 이뤄지며, 색인의 이름과 설정 구조, 프라이머리 샤드와 레플리카 수를 나타내는 JSON 을 지정해야 한다.
 
-![alt text](image/3.png)
+![alt text](../image/3.png)
 
 ⇒ 총 6개의 샤드  (3 + 3*1)
 
