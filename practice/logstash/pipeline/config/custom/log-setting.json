@@ -1,0 +1,74 @@
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "logs_custom_analyzer": {
+          "type": "custom",
+          "tokenizer": "logs_custom_tokenizer",
+          "filter": "logs_custom_filter"
+        }
+      },
+      "tokenizer" : {
+        "logs_custom_tokenizer" : {
+          "type": "nori_tokenizer"
+        }
+      },
+      "filter" : {
+        "logs_custom_filter" : {
+          "type" : "nori_part_of_speech",
+          "stoptags": [
+            "E",
+            "IC",
+            "J",
+            "MAG",
+            "MAJ",
+            "MM",
+            "SP",
+            "SSC",
+            "SSO",
+            "SC",
+            "SE",
+            "XPN",
+            "XSA",
+            "XSN",
+            "XSV",
+            "UNA",
+            "NA",
+            "VSV"
+          ]
+        }
+      }
+    }
+  },
+  "mappings" : {
+    "properties" : {
+      "timestamp" : {
+        "type" : "date" ,
+        "format" :  "yyyy-MM-dd HH:mm:ss"
+      },
+      "level" : {
+        "type" : "keyword"
+      },
+      "message" : {
+        "type" : "text",
+        "analyzer" : "standard",
+        "fields" : {
+          "kor" : {
+            "type" : "text",
+            "analyzer" : "logs_custom_analyzer"
+          }
+        }
+      },
+      "logger" : {
+        "type" : "text",
+        "analyzer" : "standard",
+        "fields" : {
+          "kor" : {
+            "type" : "text",
+            "analyzer" : "logs_custom_analyzer"
+          }
+        }
+      }
+    }
+  }
+}
