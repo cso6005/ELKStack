@@ -42,3 +42,24 @@ curl -XGET 127.0.0.1:9200/movies/_search?pretty -d '
     "sort":"title.raw"
 }
 
+3. when did my site go down on may5, 2017 (bucket 500 status codes by the minute in kafka_logs)
+
+~~~
+
+{
+    "query" : {
+        "match" : {
+            "response" : 500
+        }
+    },
+    "aggs" : {
+        "timestamp" : {
+            "date-histogram": {
+                "field": "@timestamp",
+                "interval" : "minute"
+            }
+        }
+    }
+}
+~~~
+
